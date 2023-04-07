@@ -46,10 +46,10 @@ Use the copy function below to do the following:
 */
 
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(iceCreamArray){
+  return [...iceCreamArray];
 }
-
+console.log('task 1:', copy(originalFlavors));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -63,10 +63,14 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-  /*your code here*/
+function is31Flavors(inventoryArray){
+  if(inventoryArray.length === 31){
+    return true;
+  } else {
+    return false
+  }
  }
-
+console.log('task 2:', is31Flavors(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -82,10 +86,11 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-  /*your code here*/
+function addFlavor(flavorsArray, newFlavorStr){
+  flavorsArray.unshift(newFlavorStr)
+  return (flavorsArray)
  }
-
+console.log('task 3:', addFlavor(originalFlavors, 'Rainbow Sherbert'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -100,10 +105,11 @@ Use the removeLastFlavor function below to do the following:
 */
 
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(flavaFlave){
+ flavaFlave.pop();
+ return flavaFlave;
 }
-
+console.log('task 4', removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -118,10 +124,10 @@ Use the getFlavorByIndex function below to do the following:
 */
 
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(array, number){ //(array, number)---parameters---number is the desired index
+  return array[number];  
 }
-
+console.log('task 5:', getFlavorByIndex(originalFlavors, 2))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -138,10 +144,15 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(array, flavor){ // flavor is a string
+  for(let i = 0; i< array.length; i++){ //array.length so that the loop runs through the entire array
+    if(array[i] === flavor){ //if the index within the array is the same as the flavor in question
+      array.splice(i,1); //removes the flavor from the array index 
+    }
+  }
+  return array; //returns array outside of the for loop
 }
-
+console.log('task 6:', removeFlavorByName(originalFlavors, 'Rocky Road'))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -150,7 +161,7 @@ Your task is to write a function that checks every item in the array for a strin
 
 Use the filterByWord function below to do the following:
   1. Receive an array in the first parameter that will take the flavors array as an argument
-  2. Receive a string in the second parameter that will take the filter value as as an argument (example: "chocolate")
+  2. Receive a string in the second parameter that will take the filter value as an argument (example: "chocolate")
   3. Check to see if any of the flavors in the array contain that string
   4. If they do, add them to a new array
   5. Return the new array that contains the filtered flavors
@@ -163,9 +174,16 @@ Use the filterByWord function below to do the following:
 */
 
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array1, stringX){
+  let filteredArray = []; //create a new array that will be .push to 
+  for(let i = 0; i < array1.length; i++){
+    if(array1[i].includes(stringX)){ //conditional made to check to see if any of the flavors in the array contain the  specific string (stringX)
+      filteredArray.push(array1[i]); // .push the item filtered through the conditional and add it (.push) to the new array
+    }
+  }  
+  return filteredArray;
 }
+console.log('task 7:', filterByWord(originalFlavors, 'Chocolate'))
 
 
 
